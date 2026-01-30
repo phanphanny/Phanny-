@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <title>pisey com</title>
+    <style>
+        body {
+            font-family: Arial, "Khmer OS Battambang";
+            background: #0ce19a;
+        }
+        .ahsome {
+            width: 600px;
+            margin: 40px auto;
+            background: #779d87;
+            padding: 30px;            box-shadow: 0 0 10px rgba(241, 237, 237, 0.1);
+            color: #f2f3f96c;
+        }
+        h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        input {
+            width: 100px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #8882d5;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ahsome">
+    <h2>បញ្ចូលពិន្ទុសម្រាប់៦មុខវិជ្ជា</h2>
+
+    <table>
+        <tr>
+            <th>មុខវិជ្ជា</th>
+            <th>Midterm</th>
+            <th>Assignment</th>
+            <th>Final</th>
+        </tr>
+        <tr>
+            <td>ភាសាខ្មែរ</td>
+            <td><input type="number" class="mid"></td>
+            <td><input type="number" class="ass"></td>
+            <td><input type="number" class="final"></td>
+        </tr>
+        <tr>
+            <td>គណិត</td>
+            <td><input type="number" class="mid"></td>
+            <td><input type="number" class="ass"></td>
+            <td><input type="number" class="final"></td>
+        </tr>
+        <tr>
+            <td>រូប</td>
+            <td><input type="number" class="mid"></td>
+            <td><input type="number" class="ass"></td>
+            <td><input type="number" class="final"></td>
+        </tr>
+        <tr>
+            <td>Web Design</td>
+            <td><input type="number" class="mid"></td>
+            <td><input type="number" class="ass"></td>
+            <td><input type="number" class="final"></td>
+        </tr>
+        <tr>
+            <td>Network</td>
+            <td><input type="number" class="mid"></td>
+            <td><input type="number" class="ass"></td>
+            <td><input type="number" class="final"></td>
+        </tr>
+        <tr>
+            <td>English</td>
+            <td><input type="number" class="mid"></td>
+            <td><input type="number" class="ass"></td>
+            <td><input type="number" class="final"></td>
+        </tr>
+    </table>
+
+    <button onclick="calculate()">គណនា</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function calculate() {
+    let subjects = document.querySelectorAll("table tr");
+    let total = 0;
+    let count = 0;
+
+    // Loop through each subject row (skip header row)
+    for (let i = 1; i < subjects.length; i++) {
+        let mid = Number(subjects[i].querySelector(".mid").value)  0;
+        let ass = Number(subjects[i].querySelector(".ass").value)  0;
+        let final = Number(subjects[i].querySelector(".final").value) || 0;
+
+        let subjectTotal = mid + ass + final;
+        total += subjectTotal;
+        count++;
+    }
+
+    let average = total / count;
+
+    let grade = "";
+    if (average >= 90) grade = "A - ល្អប្រសើរ";
+    else if (average >= 80) grade = "B - ល្អ";
+    else if (average >= 70) grade = "C - មធ្យម";
+    else if (average >= 60) grade = "D - ខ្សោយ";
+    else if (average >= 50) grade = "E - ខ្សោយខ្លាំង";
+    else grade = "F - ធ្លាក់";
+
+    document.getElementById("result").innerHTML = 
+        ពិន្ទុសរុប: ${total} | មធ្យមភាគ: ${average.toFixed(2)} | ចំណាត់ថ្នាក់: ${grade};
+}
+</script>
+
+</body>
+</html>
+</body>
+</html>
